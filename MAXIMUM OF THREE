@@ -1,0 +1,29 @@
+import java.util.*;
+
+class Maximum {
+    public static <T extends Comparable<T>> T maximum(T x, T y, T z) {
+        T max = x;
+        if (y.compareTo(max) > 0)
+            max = y;
+        if (z.compareTo(max) > 0)
+            max = z;
+        return max;
+    }
+}
+
+public class MaximumMain {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter first number: ");
+        Double a = sc.nextDouble();
+        System.out.print("Enter second number: ");
+        Double b = sc.nextDouble();
+        System.out.print("Enter third number: ");
+        Double c = sc.nextDouble();
+
+        System.out.println("Maximum value: " + Maximum.maximum(a, b, c));
+
+        sc.close();
+    }
+}
