@@ -1,0 +1,32 @@
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        HashMap<String, Integer> map = new HashMap<>();
+
+        String text = sc.nextLine().toLowerCase();
+        String word = "";
+
+        for (int i = 0; i < text.length(); i++) {
+            char c = text.charAt(i);
+
+            if (c >= 'a' && c <= 'z') {
+                word += c;
+            } else {
+                if (word.length() > 0) {
+                    map.put(word, map.getOrDefault(word, 0) + 1);
+                    word = "";
+                }
+            }
+        }
+
+        if (word.length() > 0) {
+            map.put(word, map.getOrDefault(word, 0) + 1);
+        }
+
+        for (String w : map.keySet()) {
+            System.out.println(w + " : " + map.get(w));
+        }
+    }
+}
